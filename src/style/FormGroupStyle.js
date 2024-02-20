@@ -20,9 +20,7 @@ export const LabelStyle = styled.label`
   margin-right: 5%;
   height: 100%;
 `
-export const InputStyle = styled.input`
-  width: 75%;
-`
+
 export const TextareaStyle = styled.textarea`
   resize: none;
   height: 80px;
