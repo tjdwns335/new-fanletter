@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import defaultUser from "assets/defaultuser.jpg"
 
 const initialState = {
   isLogin: !!localStorage.getItem("accessToken"),
@@ -18,7 +19,7 @@ const authSlice = createSlice({
       localStorage.setItem("nickname", nickname);
       localStorage.setItem("userId", userId);
       state.isLogin = true;
-      state.avatar = avatar;
+      state.avatar = avatar || defaultUser;
       state.nickname = nickname;
       state.userId = userId;
     },

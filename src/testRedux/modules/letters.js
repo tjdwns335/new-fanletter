@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { jsonApi } from 'api/apiGroup';
 
 const initialState = {
   letters: [],
@@ -8,12 +8,38 @@ const initialState = {
   error: null
 };
 
+export const __changeLetter = createAsyncThunk(
+  "changeLetter",
+  async ({ id, changeText }, thunkAPI) => {
+    try {
+      await jsonApi.patch(`letters/${id}`, { content: changeText });
+      const { data } = await jsonApi.get("/letters?_sort=-createdAt");
+      return thunkAPI.fulfillWithValue(data);
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+)
+
+export const __deleteLetter = createAsyncThunk(
+  "deleteLetter",
+  async (payload, thunkAPI) => {
+    try {
+      await jsonApi.delete(`/letters/${payload}`);
+      const { data } = await jsonApi.get("/letters?_sort=-createdAt");
+      return thunkAPI.fulfillWithValue(data);
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+)
+
 export const __getLetters = createAsyncThunk(
   "getLetters",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axios.get("http://localhost:5000/letters?_sort=-createdAt");
-      return data;
+      const { data } = await jsonApi.get("/letters?_sort=-createdAt");
+      return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -24,9 +50,9 @@ export const __addLetter = createAsyncThunk(
   "addLetter",
   async (payload, thunkAPI) => {
     try {
-      await axios.post("http://localhost:5000/letters", payload);
-      const { data } = await axios.get("http://localhost:5000/letters?_sort=-createdAt");
-      return data;
+      await jsonApi.post("/letters", payload);
+      const { data } = await jsonApi.get("/letters?_sort=-createdAt");
+      return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -80,6 +106,34 @@ const lettersSlice = createSlice({
       state.letters = action.payload;
     });
     builder.addCase(__getLetters.rejected, (state, action) => {
+      state.isLoading = true;
+      state.isError = true;
+      state.error = action.payload;
+    });
+    builder.addCase(__deleteLetter.pending, (state) => {
+      state.isLoading = true;
+      state.isError = false;
+    });
+    builder.addCase(__deleteLetter.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.isError = false;
+      state.letters = action.payload;
+    });
+    builder.addCase(__deleteLetter.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.error = action.payload;
+    });
+    builder.addCase(__changeLetter.pending, (state) => {
+      state.isLoading = true;
+      state.isError = false;
+    });
+    builder.addCase(__changeLetter.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.isError = false;
+      state.letters = action.payload;
+    });
+    builder.addCase(__changeLetter.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
       state.error = action.payload;

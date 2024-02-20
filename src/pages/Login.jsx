@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { login } from 'testRedux/modules/authSlice';
+import { authApi } from 'api/apiGroup';
 import {
   Background,
   LoginBtnGroupStyled,
@@ -10,7 +11,7 @@ import {
   LoginInputStyle,
   LoginTitleStyle
 } from 'style/LoginStyled';
-import axios from 'axios';
+
 
 
 function Login() {
@@ -33,7 +34,7 @@ function Login() {
     }
     if (loginMode) {
       try {
-        const { data } = await axios.post("https://moneyfulpublicpolicy.co.kr/login", {
+        const { data } = await authApi.post("/login?expiresIn=5m", {
           id, password
         });
         const { accessToken, avatar, nickname, userId } = data;
@@ -48,7 +49,7 @@ function Login() {
       }
     } else {
       try {
-        const { data } = await axios.post("https://moneyfulpublicpolicy.co.kr/register", {
+        const { data } = await authApi.post("/register", {
           id, password, nickname
         });
         if (data.success) {

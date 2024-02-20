@@ -1,75 +1,57 @@
 {
   "letters": [
     {
-      "id": "f203758b-5e8c-4fc5-be70-580f666b47c4",
+      "id": "9a7c4fef-c2d7-418a-8273-fab4341e8799",
       "nickname": "test",
-      "content": "테스트입니다",
-      "avatar": "null",
+      "content": "수정 TEST",
+      "avatar": "/static/media/defaultuser.e028bfb5dfa382b76f23.jpg",
       "writedTo": "효정",
-      "createdAt": 1708407376476,
+      "createdAt": 1708430803137,
       "userId": "test11"
     },
     {
-      "id": "bd5a6584-a8bd-477f-9d9e-dafe20000f3d",
+      "id": "e63c9a40-04ae-438a-89ba-6e41ec2d7768",
       "nickname": "test",
-      "content": "테스트입니다",
-      "avatar": "null",
+      "content": "dsadsadsa",
+      "avatar": "/static/media/defaultuser.e028bfb5dfa382b76f23.jpg",
       "writedTo": "미미",
-      "createdAt": 1708407386680,
+      "createdAt": 1708430806641,
       "userId": "test11"
     },
     {
-      "id": "259832ed-75d5-459a-b4cd-c935c179cdfd",
+      "id": "c97f83ad-fee2-4f0e-a857-ffa768623ab3",
       "nickname": "test",
-      "content": "테스트입니다",
-      "avatar": "null",
-      "writedTo": "승희",
-      "createdAt": 1708407613402,
-      "userId": "test11"
-    },
-    {
-      "id": "1960d152-307a-46e7-aab1-949b19883ec0",
-      "nickname": "test",
-      "content": "테스트입니다.",
-      "avatar": "null",
+      "content": "dsadasdsa",
+      "avatar": "/static/media/defaultuser.e028bfb5dfa382b76f23.jpg",
       "writedTo": "유아",
-      "createdAt": 1708407717779,
+      "createdAt": 1708430809272,
       "userId": "test11"
     },
     {
-      "id": "41f0ff72-84c4-4068-9674-420c1131113b",
+      "id": "05bfc851-787a-4d8d-b1f1-b0c9c82e37c1",
       "nickname": "test",
-      "content": "테스트입니다.",
-      "avatar": "null",
+      "content": "dasdsadsa",
+      "avatar": "/static/media/defaultuser.e028bfb5dfa382b76f23.jpg",
+      "writedTo": "승희",
+      "createdAt": 1708430811802,
+      "userId": "test11"
+    },
+    {
+      "id": "aaa27e86-d292-4db5-9628-e4009ef73551",
+      "nickname": "test",
+      "content": "dsadsadsa",
+      "avatar": "/static/media/defaultuser.e028bfb5dfa382b76f23.jpg",
       "writedTo": "유빈",
-      "createdAt": 1708407728053,
+      "createdAt": 1708430819728,
       "userId": "test11"
     },
     {
-      "id": "008a20ad-ed63-4ab6-b767-e2895ae6bb6b",
+      "id": "6ca7b518-7803-4193-b59e-fd890851182a",
       "nickname": "test",
-      "content": "테스트입니다",
-      "avatar": "null",
+      "content": "dasdsadasdsa",
+      "avatar": "/static/media/defaultuser.e028bfb5dfa382b76f23.jpg",
       "writedTo": "아린",
-      "createdAt": 1708407738732,
-      "userId": "test11"
-    },
-    {
-      "id": "4bea192b-2099-4839-95af-41f5d4006035",
-      "nickname": "test",
-      "content": "tests",
-      "avatar": "null",
-      "writedTo": "효정",
-      "createdAt": 1708408258814,
-      "userId": "test11"
-    },
-    {
-      "id": "535db61b-f724-4bce-98fe-56e17459dc86",
-      "nickname": "test",
-      "content": "testestestse",
-      "avatar": "null",
-      "writedTo": "효정",
-      "createdAt": 1708408366746,
+      "createdAt": 1708430830763,
       "userId": "test11"
     }
   ]

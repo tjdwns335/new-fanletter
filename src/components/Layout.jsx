@@ -7,6 +7,7 @@ import { LayoutHeaderStyle } from 'style/LayouStyle';
 
 function Layout() {
   const dispatch = useDispatch();
+
   return (
     <>
       <LayoutHeaderStyle>
