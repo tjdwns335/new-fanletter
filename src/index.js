@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from 'testRedux/config/configStore';
 import GlobalStyle from 'style/GlobalStyle';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
