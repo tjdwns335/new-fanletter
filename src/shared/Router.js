@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "pages/Home";
 import Detail from "pages/Detail";
+import { useState } from "react";
 
 const Router = () => {
+  const [isLogin, setIsLogin] = useState(false);
   return (
     <BrowserRouter>
       <Routes >
