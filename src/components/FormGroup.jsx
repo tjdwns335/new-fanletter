@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addLetter } from 'testRedux/modules/letters';
+import { __addLetter, addLetter } from 'testRedux/modules/letters';
 import {
   FormButton,
   FormStyle,
@@ -13,7 +13,8 @@ import {
 
 function FormGroup() {
   const dispatch = useDispatch();
-  const { avatar, nickname } = useSelector(state => state.auth);
+  const { avatar, nickname, userId } = useSelector(state => state.auth);
+  console.log(userId);
 
   const [detail, setDetail] = useState('');
   const [member, setMember] = useState("효정");
@@ -29,14 +30,15 @@ function FormGroup() {
     }
 
     const newLetters = {
-      createdAt: Date.now(),
-      nickname,
-      avatar,
-      content: detail,
-      writedTo: member,
       id: uuid(),
+      nickname,
+      content: detail,
+      avatar,
+      writedTo: member,
+      createdAt: Date.now(),
+      userId,
     }
-    dispatch(addLetter(newLetters));
+    dispatch(__addLetter(newLetters));
     setDetail("");
   }
 

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const HeaderStyle = styled.header`
+export const HeaderStyle = styled.div`
   background: url(https://i.namu.wiki/i/23IWDVBFIP9J3Gi288Tm_N_Ji-gxLuVuH0ti2BxMPx90ScamKjClMqSwUalYYRoOAjDrBj5rQy7RDF9H9td7LA.webp);
   width: 100%;
   height: 350px;
