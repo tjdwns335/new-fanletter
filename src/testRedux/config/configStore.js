@@ -11,5 +11,5 @@ const store = configureStore({
   }
 })
 
-const getStore = () => store;
-export default getStore;
+
+export default store;
