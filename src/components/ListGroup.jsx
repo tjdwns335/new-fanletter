@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import defaultUser from "assets/defaultuser.jpg";
 import { getLocationDate } from 'utill/date';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -33,7 +32,7 @@ function ListGroup() {
               <LetterWrap key={item.id} onClick={() => navigate(`/detail/${item.id}`)}>
                 <UserInfoStyle>
                   <AvatarStyle>
-                    <img src={item.avatar ?? defaultUser} alt="아바타 이미지" />
+                    <img src={item.avatar} alt="아바타 이미지" />
                   </AvatarStyle>
                   <NickNameStyle>
                     <p>{item.nickname}</p>

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import defaultUser from "assets/defaultuser.jpg"
+import defaultUser from "assets/defaultUser.png"
 
 const initialState = {
   isLogin: !!localStorage.getItem("accessToken"),
