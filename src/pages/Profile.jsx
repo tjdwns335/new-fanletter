@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { toast } from 'react-toastify';
+import { __changeProfile } from 'testRedux/modules/authSlice';
 import {
   AvatarTag,
   BtnWrapper,
@@ -10,7 +10,7 @@ import {
   ProfileWrap,
   UserIdStyle
 } from 'style/ProfileStyle';
-import { __changeProfile } from 'testRedux/modules/authSlice';
+
 
 export default function Profile() {
   const dispatch = useDispatch();
@@ -40,7 +40,6 @@ export default function Profile() {
     }
     dispatch(__changeProfile(formData));
     setChange(false);
-    toast.success("프로필 변경 완료")
   }
 
   return (

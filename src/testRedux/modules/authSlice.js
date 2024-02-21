@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { authApi } from 'api/apiGroup';
+import { authApi, jsonApi } from 'api/apiGroup';
 import defaultUser from "assets/defaultUser.png"
+import { toast } from 'react-toastify';
 
 const initialState = {
   isLogin: !!localStorage.getItem("accessToken"),
@@ -22,7 +23,14 @@ export const __changeProfile = createAsyncThunk(
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${accessToken}`,
         }
-      })
+      });
+      const { nickname, avatar } = data;
+      const userId = localStorage.getItem("userId");
+      const { data: myLetter } = await jsonApi.get(`/letters?userId=${userId}`);
+      for (let letter of myLetter) {
+        await jsonApi.patch(`/letters/${letter.id}`, { nickname, avatar });
+      }
+
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -65,6 +73,7 @@ const authSlice = createSlice({
         state.nickname = nickname;
       }
       state.isLoading = false;
+      toast.success("프로필 변경 완료")
     });
     builder.addCase(__changeProfile.rejected, (state, action) => {
       state.isLoading = false;

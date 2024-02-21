@@ -28,6 +28,7 @@ export const AvatarTag = styled.div`
   width: 180px;
   height: 180px;
   border-radius: 50%;
+  overflow: hidden;
   & img{
     width: 100%;
     height: 100%;
