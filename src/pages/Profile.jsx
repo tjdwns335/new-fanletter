@@ -47,41 +47,37 @@ export default function Profile() {
     <ProfileWrap>
       <ProfileContents>
         <h1>프로필 관리</h1>
-        {
-          change ?
-            <>
-
-            </> : <>
-
-            </>
-        }
-        <AvatarTag>
-          <label>
-            <img src={imageSelect} alt="아바타 이미지" />
+        {change ?
+          <>
+            <AvatarTag>
+              <label>
+                <img src={imageSelect} alt="아바타 이미지" />
+                <input
+                  type="file"
+                  onChange={onChangeImage}
+                  accept="image/*"
+                />
+              </label>
+            </AvatarTag>
             <input
-              type="file"
-              onChange={onChangeImage}
-              accept="image/*"
+              type="text"
+              defaultValue={nickname}
+              onChange={(e) => { setChangeText(e.target.value) }}
             />
-          </label>
-        </AvatarTag>
-        {change ?
-          <input
-            type="text"
-            defaultValue={nickname}
-            onChange={(e) => { setChangeText(e.target.value) }}
-          /> :
-          <NickNameStyle>{changeText}</NickNameStyle>
+            <UserIdStyle>{userId}</UserIdStyle>
+            <BtnWrapper>
+              <ProfileBtnStyle onClick={() => setChange(false)}>취소</ProfileBtnStyle>
+              <ProfileBtnStyle onClick={doneClickHandler}>수정완료</ProfileBtnStyle>
+            </BtnWrapper>
+          </> : <>
+            <AvatarTag>
+              <img src={imageSelect} alt="아바타 이미지" />
+            </AvatarTag>
+            <NickNameStyle>{changeText}</NickNameStyle>
+            <UserIdStyle>{userId}</UserIdStyle>
+            <ProfileBtnStyle onClick={() => setChange(true)}>수정하기</ProfileBtnStyle>
+          </>
         }
-        <UserIdStyle>{userId}</UserIdStyle>
-        {change ?
-          <BtnWrapper>
-            <ProfileBtnStyle onClick={() => setChange(false)}>취소</ProfileBtnStyle>
-            <ProfileBtnStyle onClick={doneClickHandler}>수정완료</ProfileBtnStyle>
-          </BtnWrapper> :
-          <ProfileBtnStyle onClick={() => setChange(true)}>수정하기</ProfileBtnStyle>
-        }
-
       </ProfileContents>
     </ProfileWrap>
   )
