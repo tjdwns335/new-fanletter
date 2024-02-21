@@ -34,7 +34,7 @@ function Login() {
     }
     if (loginMode) {
       try {
-        const { data } = await authApi.post("/login?expiresIn=5m", {
+        const { data } = await authApi.post("/login", {
           id, password
         });
         const { accessToken, avatar, nickname, userId } = data;
