@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
-import { __addLetter, addLetter } from 'testRedux/modules/letters';
+import { __addLetter } from 'testRedux/modules/letters';
 import {
   FormButton,
   FormStyle,
