@@ -18,6 +18,11 @@ export const ProfileContents = styled.div`
     font-weight: 700;
     color: #0B1761;
   }
+  & >input{
+    height: 24px;
+    outline: none;
+    text-indent: 5px;
+  }
 `
 export const AvatarTag = styled.div`
   width: 180px;
@@ -27,6 +32,9 @@ export const AvatarTag = styled.div`
     width: 100%;
     height: 100%;
     background-size: contain;
+  }
+  & label >input{
+    display: none;
   }
 `
 export const NickNameStyle = styled.p`
@@ -42,4 +50,15 @@ export const ProfileBtnStyle = styled.button`
   background-color: #0B1761;
   color: #fff;
   padding: 10px 0;
+  cursor: pointer;
+  display: inline-block;
+`
+
+export const BtnWrapper = styled.div`
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  & button{
+    padding: 10px 15px;
+  }
 `
