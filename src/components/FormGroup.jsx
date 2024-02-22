@@ -14,7 +14,6 @@ import {
 function FormGroup() {
   const dispatch = useDispatch();
   const { avatar, nickname, userId } = useSelector(state => state.auth);
-  console.log(userId);
 
   const [detail, setDetail] = useState('');
   const [member, setMember] = useState("효정");

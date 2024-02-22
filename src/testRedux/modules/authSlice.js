@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 
 const initialState = {
   isLogin: !!localStorage.getItem("accessToken"),
+  accessToken: localStorage.getItem("accessToken"),
   avatar: localStorage.getItem("avatar"),
   nickname: localStorage.getItem("nickname"),
   userId: localStorage.getItem("userId"),
@@ -17,11 +18,9 @@ export const __changeProfile = createAsyncThunk(
   "changeProfile",
   async (formData, thunkAPI) => {
     try {
-      const accessToken = localStorage.getItem("accessToken");
       const { data } = await authApi.patch("/profile", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${accessToken}`,
         }
       });
       const { nickname, avatar } = data;
@@ -49,6 +48,7 @@ const authSlice = createSlice({
       localStorage.setItem("nickname", nickname);
       localStorage.setItem("userId", userId);
       state.isLogin = true;
+      state.accessToken = accessToken;
       state.avatar = avatar || defaultUser;
       state.nickname = nickname;
       state.userId = userId;
