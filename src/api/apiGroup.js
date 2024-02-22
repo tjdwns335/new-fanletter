@@ -15,7 +15,7 @@ export const authApi = axios.create({
 });
 
 export const jsonApi = axios.create({
-  baseURL: process.env.REACT_APP_VERCEL_URL,
+  baseURL: process.env.REACT_APP_JSON_URL,
   headers: {
     "Content-Type": "application/json"
   }
