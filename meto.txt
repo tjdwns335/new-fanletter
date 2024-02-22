@@ -1,2 +1,2 @@
 아이디만들 때 참고사항 const id = crypto.randomUUID();
-베포 URI = https://new-fanletter.vercel.app/
+베포 URI = 

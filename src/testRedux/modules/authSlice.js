@@ -29,7 +29,6 @@ export const __changeProfile = createAsyncThunk(
       for (let letter of myLetter) {
         await jsonApi.patch(`/letters/${letter.id}`, { nickname, avatar });
       }
-
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
